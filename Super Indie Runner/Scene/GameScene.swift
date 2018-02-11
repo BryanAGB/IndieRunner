@@ -22,7 +22,18 @@ class GameScene: SKScene {
     var lastTime : TimeInterval = 0
     var dt : TimeInterval = 0
     
-    var gameState = GameState.ready
+    var gameState = GameState.ready {
+        willSet{
+            switch newValue {
+            case .ongoing:
+                player.state = .running
+            case .finished:
+                player.state = .idle
+            default:
+                break
+            }
+        }
+    }
     
     var player : Player!
     
@@ -66,6 +77,7 @@ class GameScene: SKScene {
         if let groundTiles = mapNode.childNode(withName: GameConstants.StringConstants.groundTilesName) as? SKTileMapNode {
             tileMap = groundTiles
             tileMap.scale(to: frame.size, width: false, multiplier: 1.0)
+            PhysicsHelper.addPhysicsBody(to: tileMap, and: "ground")
         }
         addPlayer()
     }
@@ -77,6 +89,8 @@ class GameScene: SKScene {
         PhysicsHelper.addPhysicsBody(to: player, with: player.name!)
         player.position = CGPoint(x: frame.midX / 2.0, y: frame.midY)
         player.zPosition = GameConstants.ZPositions.playerZ
+        player.loadTextures()
+        player.state = .idle
         addChild(player)
     }
     
@@ -106,6 +120,17 @@ class GameScene: SKScene {
         if gameState == .ongoing {
         worldLayer.update(dt)
         backgroundLayer.update(dt)
+        }
+    }
+    
+    override func didSimulatePhysics() {
+        for node in tileMap[GameConstants.StringConstants.groundNodeName] {
+            if let groundNode = node as? GroundNode {
+                let groundY = (groundNode.position.y + groundNode.size.height) * tileMap.yScale
+                let playerY = player.position.y - player.size.height/3
+                groundNode.isBodyActivated = playerY > groundY
+            }
+            
         }
     }
     

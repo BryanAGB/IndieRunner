@@ -17,6 +17,9 @@ class PhysicsHelper {
             sprite.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: sprite.size.width/2, height: sprite.size.height))
             sprite.physicsBody!.restitution = 0.0
             sprite.physicsBody!.allowsRotation = false
+            sprite.physicsBody!.categoryBitMask = GameConstants.PhysicsCategories.playerCategory
+            sprite.physicsBody!.collisionBitMask = GameConstants.PhysicsCategories.groundCategory | GameConstants.PhysicsCategories.finishCategory
+            sprite.physicsBody!.contactTestBitMask = GameConstants.PhysicsCategories.allCategory
         default: sprite.physicsBody = SKPhysicsBody(rectangleOf: sprite.size)
         }
         

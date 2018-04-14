@@ -92,11 +92,28 @@ class GameScene: SKScene {
         player.loadTextures()
         player.state = .idle
         addChild(player)
+        addPlayerActions()
+    }
+    
+    func addPlayerActions() {
+        let up = SKAction.moveBy(x: 0.0, y: frame.size.height/4, duration: 0.4)
+        up.timingMode = .easeOut
+        
+        player.createUserData(entry: up, forKey: GameConstants.StringConstants.jumpUpActionKey)
+    }
+    
+    func jump() {
+        player.airborne = true
+        player.turnGravity(on: false)
+        player.run(player.userData?.value(forKey: GameConstants.StringConstants.jumpUpActionKey) as! SKAction) {
+            self.player.turnGravity(on: true)
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         switch gameState {
         case .ready: gameState = .ongoing
+        case .ongoing: if !player.airborne {jump()}
         default: break
         }
     }
@@ -137,5 +154,25 @@ class GameScene: SKScene {
 }
 
 extension GameScene: SKPhysicsContactDelegate {
+    func didBegin(_ contact: SKPhysicsContact) {
+        let contactMask = contact.bodyA.categoryBitMask  | contact.bodyB.categoryBitMask
+        
+        switch contactMask {
+        case GameConstants.PhysicsCategories.playerCategory | GameConstants.PhysicsCategories.groundCategory:
+            player.airborne = false
+        default : break
+        }
+        
+    }
     
+    
+    func didEnd(_ contact: SKPhysicsContact) {
+        let contactMask = contact.bodyA.categoryBitMask  | contact.bodyB.categoryBitMask
+        
+        switch contactMask {
+        case GameConstants.PhysicsCategories.playerCategory | GameConstants.PhysicsCategories.groundCategory:
+            player.airborne = true
+        default : break
+        }
+    }
 }

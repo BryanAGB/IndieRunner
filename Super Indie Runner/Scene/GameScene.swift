@@ -37,6 +37,11 @@ class GameScene: SKScene {
     
     var player : Player!
     
+    var touch = false
+    
+    var brake = false
+    
+    
     override func didMove(to view: SKView) {
         physicsWorld.contactDelegate = self
         physicsWorld.gravity = CGVector(dx: 0.0, dy: -6.0)
@@ -100,30 +105,56 @@ class GameScene: SKScene {
         up.timingMode = .easeOut
         
         player.createUserData(entry: up, forKey: GameConstants.StringConstants.jumpUpActionKey)
+        
+        let move = SKAction.moveBy(x: 0.0, y: player.size.height, duration: 0.4)
+        let jump = SKAction.animate(with: player.jumpFrames, timePerFrame: 0.4/Double(player.jumpFrames.count))
+        let group = SKAction.group([move,jump])
+        
+        player.createUserData(entry: group, forKey: GameConstants.StringConstants.brakeDescendActionKey)
+        
     }
     
     func jump() {
         player.airborne = true
         player.turnGravity(on: false)
         player.run(player.userData?.value(forKey: GameConstants.StringConstants.jumpUpActionKey) as! SKAction) {
-            self.player.turnGravity(on: true)
+            if self.touch {
+                self.player.run(self.player.userData?.value(forKey: GameConstants.StringConstants.jumpUpActionKey) as! SKAction,
+                    completion: {
+                    self.player.turnGravity(on: true)
+                })
+            }
         }
+    }
+    
+    func brakeDescend() {
+        brake = true
+        player.physicsBody!.velocity.dy = 0.0
+        player.run(player.userData?.value(forKey: GameConstants.StringConstants.brakeDescendActionKey) as! SKAction)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         switch gameState {
         case .ready: gameState = .ongoing
-        case .ongoing: if !player.airborne {jump()}
+        case .ongoing:
+            touch = true
+            if !player.airborne {
+                jump()}
+            else if !brake {
+                brakeDescend()
+            }
         default: break
         }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
+        touch = false
+        player.turnGravity(on: true)
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
+        touch = false
+        player.turnGravity(on: true)
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -160,6 +191,7 @@ extension GameScene: SKPhysicsContactDelegate {
         switch contactMask {
         case GameConstants.PhysicsCategories.playerCategory | GameConstants.PhysicsCategories.groundCategory:
             player.airborne = false
+            brake = false
         default : break
         }
         

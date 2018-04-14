@@ -27,8 +27,10 @@ class GameScene: SKScene {
             switch newValue {
             case .ongoing:
                 player.state = .running
+                pauseEnemies(bool: false)
             case .finished:
                 player.state = .idle
+                pauseEnemies(bool: true)
             default:
                 break
             }
@@ -76,6 +78,10 @@ class GameScene: SKScene {
     func load(level: String) {
         if let levelNode = SKNode.unarchiveFromFile(file: level){
             mapNode = levelNode
+            
+            //this line is needed or the animations won't work.
+            levelNode.isPaused = false
+            
             worldLayer.addChild(mapNode)
             loadTileMap()
         }
@@ -143,6 +149,12 @@ class GameScene: SKScene {
     
     func handleEnemyContact() {
         die(reason: 0)
+    }
+    
+    func pauseEnemies(bool: Bool){
+        for enemy in tileMap[GameConstants.StringConstants.enemyName] {
+            enemy.isPaused = bool
+        }
     }
     
     func die(reason: Int) {

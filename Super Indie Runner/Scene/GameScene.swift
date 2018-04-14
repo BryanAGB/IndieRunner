@@ -83,6 +83,11 @@ class GameScene: SKScene {
             tileMap = groundTiles
             tileMap.scale(to: frame.size, width: false, multiplier: 1.0)
             PhysicsHelper.addPhysicsBody(to: tileMap, and: "ground")
+            for child in groundTiles.children {
+                if let sprite = child as? SKSpriteNode, sprite.name != nil {
+                ObjectHelper.handleChild(sprite: sprite, with: sprite.name!)
+                }
+            }
         }
         addPlayer()
     }
@@ -192,6 +197,8 @@ extension GameScene: SKPhysicsContactDelegate {
         case GameConstants.PhysicsCategories.playerCategory | GameConstants.PhysicsCategories.groundCategory:
             player.airborne = false
             brake = false
+        case GameConstants.PhysicsCategories.playerCategory | GameConstants.PhysicsCategories.finishCategory :
+            gameState = .finished
         default : break
         }
         

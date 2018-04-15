@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9328A759208340F4002AB32E /* ParticleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9328A758208340F4002AB32E /* ParticleHelper.swift */; };
+		9328A75D20834286002AB32E /* CoinDustEmitter.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9328A75B20834286002AB32E /* CoinDustEmitter.sks */; };
+		9328A75E20834286002AB32E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9328A75C20834286002AB32E /* Assets.xcassets */; };
 		933FBDFE2082102200DD6778 /* ObjectHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933FBDFD2082102200DD6778 /* ObjectHelper.swift */; };
 		936FDA7E20305C29009683CC /* RepeatingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936FDA7D20305C29009683CC /* RepeatingLayer.swift */; };
 		936FDA8020306053009683CC /* GameConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936FDA7F20306053009683CC /* GameConstants.swift */; };
@@ -48,6 +50,8 @@
 
 /* Begin PBXFileReference section */
 		9328A758208340F4002AB32E /* ParticleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticleHelper.swift; sourceTree = "<group>"; };
+		9328A75B20834286002AB32E /* CoinDustEmitter.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CoinDustEmitter.sks; sourceTree = "<group>"; };
+		9328A75C20834286002AB32E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		933FBDFD2082102200DD6778 /* ObjectHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectHelper.swift; sourceTree = "<group>"; };
 		936FDA7D20305C29009683CC /* RepeatingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatingLayer.swift; sourceTree = "<group>"; };
 		936FDA7F20306053009683CC /* GameConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConstants.swift; sourceTree = "<group>"; };
@@ -100,6 +104,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9328A75A2083422A002AB32E /* Particle Emitters */ = {
+			isa = PBXGroup;
+			children = (
+				9328A75B20834286002AB32E /* CoinDustEmitter.sks */,
+				9328A75C20834286002AB32E /* Assets.xcassets */,
+			);
+			path = "Particle Emitters";
+			sourceTree = "<group>";
+		};
 		936FDA8120307850009683CC /* Custom Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +165,7 @@
 		93F474FF202724B600C014C4 /* Super Indie Runner */ = {
 			isa = PBXGroup;
 			children = (
+				9328A75A2083422A002AB32E /* Particle Emitters */,
 				936FDA8420307BC7009683CC /* Helper FIles */,
 				936FDA8120307850009683CC /* Custom Classes */,
 				93B21DEE20304BE1001EBB7A /* Layers */,
@@ -363,7 +377,9 @@
 				93F4753B2027287100C014C4 /* Level_0-1.sks in Resources */,
 				93F4753E2027295E00C014C4 /* TileSets.sks in Resources */,
 				93F4750E202724B600C014C4 /* Assets.xcassets in Resources */,
+				9328A75E20834286002AB32E /* Assets.xcassets in Resources */,
 				93F47511202724B600C014C4 /* LaunchScreen.storyboard in Resources */,
+				9328A75D20834286002AB32E /* CoinDustEmitter.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

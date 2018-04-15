@@ -25,6 +25,7 @@ class ObjectHelper {
     }
     
     static func calculateGridWidth(rows: Int, columns: Int, parent: SKSpriteNode){
+        parent.color = UIColor.clear
         for x in 0..<columns {
             for y in 0..<rows {
                 let position = CGPoint(x: x, y: y)
@@ -38,7 +39,7 @@ class ObjectHelper {
         coin.size = CGSize(width: parent.size.width / CGFloat(columns), height: parent.size.width/CGFloat(columns))
         coin.name = GameConstants.StringConstants.coinName
         
-        parent.color = UIColor.clear
+        
         coin.position = CGPoint(x: position.x * coin.size.width + coin.size.width/2, y: position.y * coin.size.height + coin.size.height/2)
         
         let coinFrames = AnimationHelper.loadTextures(from: SKTextureAtlas(named: GameConstants.StringConstants.coinRotateAtlas), withName: GameConstants.StringConstants.coinPrefixKey)

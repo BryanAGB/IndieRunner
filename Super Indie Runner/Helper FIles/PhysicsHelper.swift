@@ -26,7 +26,8 @@ class PhysicsHelper {
         case GameConstants.StringConstants.enemyName :
             sprite.physicsBody = SKPhysicsBody(rectangleOf: sprite.size)
             sprite.physicsBody!.categoryBitMask = GameConstants.PhysicsCategories.enemyCategory
-        case GameConstants.StringConstants.coinName :
+        case GameConstants.StringConstants.coinName,
+             _ where GameConstants.StringConstants.superCoinNames.contains(name):
             sprite.physicsBody = SKPhysicsBody(circleOfRadius: sprite.size.width/2)
             sprite.physicsBody!.categoryBitMask = GameConstants.PhysicsCategories.collectibleCategory
         default: sprite.physicsBody = SKPhysicsBody(rectangleOf: sprite.size)

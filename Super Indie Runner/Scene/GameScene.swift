@@ -40,12 +40,12 @@ class GameScene: SKScene {
     var player : Player!
     
     var touch = false
-    
     var brake = false
     
     var coins = 0
-    
     var superCoin = 0
+    
+    var hudDelegate : HUDDelegate?
     
     override func didMove(to view: SKView) {
         physicsWorld.contactDelegate = self
@@ -102,6 +102,7 @@ class GameScene: SKScene {
             }
         }
         addPlayer()
+        addHUD()
     }
     
     func addPlayer() {
@@ -193,6 +194,14 @@ class GameScene: SKScene {
                 sprite.removeFromParent()
             }
         }
+    }
+    
+    func addHUD() {
+        let hud = GameHUD(with: CGSize(width: frame.width, height: frame.height * 0.1))
+        hud.position = CGPoint(x: frame.midX, y: frame.maxY - frame.height * 0.05)
+        hud.zPosition = GameConstants.ZPositions.hudZ
+        hudDelegate = hud
+        addChild(hud)
     }
     
     func die(reason: Int) {

@@ -182,9 +182,15 @@ class GameScene: SKScene {
         
         if GameConstants.StringConstants.superCoinNames.contains(sprite.name!) {
             superCoin += 1
+            for index in 0..<3 {
+                if GameConstants.StringConstants.superCoinNames[index] == sprite.name! {
+                    hudDelegate?.addSuperCoin(index: index)
+                }
+            }
         }
         else {
         coins += 1
+        hudDelegate?.updateCoinLabel(coins: coins)
         }
         if let coinDust = ParticleHelper.addParticleEffect(name: GameConstants.StringConstants.coinDustEmitterKey, particlePositionRange: CGVector(dx: 5.0, dy: 5.0), position: CGPoint.zero) {
             coinDust.zPosition = GameConstants.ZPositions.objectZ

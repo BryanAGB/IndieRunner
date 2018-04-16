@@ -45,6 +45,18 @@ struct GameConstants {
         static let superCoinImageName = "SuperCoin"
         static let superCoinNames = ["Super1", "Super2", "Super3"]
         static let gameFontName = "Unanimous Inverted -BRK-"
+        static let playButton = "PlayButton"
+        static let retryButton = "RetryButton"
+        static let menuButton = "MenuButton"
+        static let pauseButton = "PauseButton"
+        static let emptyButton = "EmptyButton"
+        static let cancelButton = "CancelButton"
+        static let largePopup = "PopupLarge"
+        static let smallPopup = "Popupsmall"
+        static let fullStarName = "StarFull"
+        static let emptyStarName = "StarEmpty"
+        static let bannerName = "Banner"
+        static let popupButtonName = ["MenuButton", "PlayButton", "RetryButton", "CancelButton"]
         
         static let playerIdleAtlas = "Player Idle Atlas"
         static let playerRunAtlas = "Player Run Atlas"

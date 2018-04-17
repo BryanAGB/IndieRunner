@@ -56,7 +56,7 @@ struct GameConstants {
         static let fullStarName = "StarFull"
         static let emptyStarName = "StarEmpty"
         static let bannerName = "Banner"
-        static let popupButtonName = ["MenuButton", "PlayButton", "RetryButton", "CancelButton"]
+        static let popupButtonNames = ["MenuButton", "PlayButton", "RetryButton", "CancelButton"]
         
         static let playerIdleAtlas = "Player Idle Atlas"
         static let playerRunAtlas = "Player Run Atlas"

@@ -25,6 +25,7 @@
 		936FDA8620307BE1009683CC /* PhysicsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936FDA8520307BE1009683CC /* PhysicsHelper.swift */; };
 		936FDA882030852C009683CC /* GroundNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936FDA872030852C009683CC /* GroundNode.swift */; };
 		93791C302086128A004703B0 /* SpriteKitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93791C2F2086128A004703B0 /* SpriteKitButton.swift */; };
+		93A595B52087617D00FB5043 /* ScoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A595B42087617D00FB5043 /* ScoreManager.swift */; };
 		93B21DF020304C03001EBB7A /* Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B21DEF20304C03001EBB7A /* Layer.swift */; };
 		93E7F1C720308BC200AEC6DC /* AnimationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E7F1C620308BC200AEC6DC /* AnimationHelper.swift */; };
 		93F47501202724B600C014C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F47500202724B600C014C4 /* AppDelegate.swift */; };
@@ -76,6 +77,7 @@
 		936FDA8520307BE1009683CC /* PhysicsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsHelper.swift; sourceTree = "<group>"; };
 		936FDA872030852C009683CC /* GroundNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundNode.swift; sourceTree = "<group>"; };
 		93791C2F2086128A004703B0 /* SpriteKitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteKitButton.swift; sourceTree = "<group>"; };
+		93A595B42087617D00FB5043 /* ScoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreManager.swift; sourceTree = "<group>"; };
 		93B21DEF20304C03001EBB7A /* Layer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layer.swift; sourceTree = "<group>"; };
 		93E7F1C620308BC200AEC6DC /* AnimationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationHelper.swift; sourceTree = "<group>"; };
 		93F474FD202724B600C014C4 /* Super Indie Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Super Indie Runner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -178,6 +180,7 @@
 				93E7F1C620308BC200AEC6DC /* AnimationHelper.swift */,
 				933FBDFD2082102200DD6778 /* ObjectHelper.swift */,
 				9328A758208340F4002AB32E /* ParticleHelper.swift */,
+				93A595B42087617D00FB5043 /* ScoreManager.swift */,
 			);
 			path = "Helper FIles";
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 				93B21DF020304C03001EBB7A /* Layer.swift in Sources */,
 				935F2F302084C71000C1A125 /* PopupNode.swift in Sources */,
 				9328A76B208362B9002AB32E /* GameHUD.swift in Sources */,
+				93A595B52087617D00FB5043 /* ScoreManager.swift in Sources */,
 				93F47509202724B600C014C4 /* GameViewController.swift in Sources */,
 				933FBDFE2082102200DD6778 /* ObjectHelper.swift in Sources */,
 				935F2F362084C7E500C1A125 /* PopupButtonHandlerDelegate.swift in Sources */,

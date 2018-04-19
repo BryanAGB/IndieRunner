@@ -43,7 +43,9 @@ class GameScene: SKScene {
     var brake = false
     
     var coins = 0
-    var superCoin = 0
+    var superCoins = 0
+    
+    var popup : PopupNode?
     
     var hudDelegate : HUDDelegate?
     
@@ -181,7 +183,7 @@ class GameScene: SKScene {
     func collectCoin(sprite: SKSpriteNode) {
         
         if GameConstants.StringConstants.superCoinNames.contains(sprite.name!) {
-            superCoin += 1
+            superCoins += 1
             for index in 0..<3 {
                 if GameConstants.StringConstants.superCoinNames[index] == sprite.name! {
                     hudDelegate?.addSuperCoin(index: index)
@@ -208,6 +210,21 @@ class GameScene: SKScene {
         hud.zPosition = GameConstants.ZPositions.hudZ
         hudDelegate = hud
         addChild(hud)
+    }
+    
+    func createAndShowPopup(type: Int, title: String) {
+        switch type {
+        case 0:
+            popup = PopupNode(withTitle: title, and: SKTexture(imageNamed: GameConstants.StringConstants.smallPopup), buttonHandlerDelegate: self)
+            popup!.add(buttons: [0,3,2])
+        default:
+            popup = ScorePopupNode(buttonHandlerDelegate: self, title: title, level: "level_0-1", texture: SKTexture(imageNamed: GameConstants.StringConstants.largePopup), score: coins, coins: superCoins, animated: true)
+            popup!.add(buttons: [2,0])
+        }
+        popup!.position = CGPoint(x: frame.midX, y: frame.midY)
+        popup!.zPosition = GameConstants.ZPositions.hudZ
+        popup!.scale(to: frame.size, width: true, multiplier: 0.8)
+        addChild(popup!)
     }
     
     func die(reason: Int) {
@@ -317,4 +334,28 @@ extension GameScene: SKPhysicsContactDelegate {
         default : break
         }
     }
+}
+
+extension GameScene: PopupButtonHandlerDelegate {
+    func popupButtonHandler(index: Int) {
+        switch index{
+        case 0:
+            //Menu
+            break
+        case 1:
+            //Play
+            break
+        case 2:
+            //Retry
+            break
+        case 3:
+            //Cancel
+            break
+        default:
+            break
+            
+        }
+    }
+    
+    
 }

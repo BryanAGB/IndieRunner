@@ -48,9 +48,26 @@ class GameScene: SKScene {
     var coins = 0
     var superCoins = 0
     
+    var world: Int
+    var level: Int
+    var levelKey: String
+    
     var popup : PopupNode?
     
     var hudDelegate : HUDDelegate?
+    var sceneManagerDelegate: SceneManagerDelegate?
+    
+    init(size: CGSize, world: Int, level: Int, sceneManagerDelegate: SceneManagerDelegate) {
+        self.world = world
+        self.level = level
+        self.levelKey = "Level_\(world)-\(level)"
+        self.sceneManagerDelegate = sceneManagerDelegate
+        super.init(size: size)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func didMove(to view: SKView) {
         physicsWorld.contactDelegate = self
@@ -80,7 +97,7 @@ class GameScene: SKScene {
             backgroundLayer.addChild(backgroundImage)
         }
         backgroundLayer.layerVelocity = CGPoint(x: -100.0, y: 0.0)
-        load(level: "Level_0-1")
+        load(level: levelKey)
     }
     
     func load(level: String) {
@@ -236,7 +253,7 @@ class GameScene: SKScene {
             popup = PopupNode(withTitle: title, and: SKTexture(imageNamed: GameConstants.StringConstants.smallPopup), buttonHandlerDelegate: self)
             popup!.add(buttons: [0,3,2])
         default:
-            popup = ScorePopupNode(buttonHandlerDelegate: self, title: title, level: "Level_0-1", texture: SKTexture(imageNamed: GameConstants.StringConstants.largePopup), score: coins, coins: superCoins, animated: true)
+            popup = ScorePopupNode(buttonHandlerDelegate: self, title: title, level: levelKey, texture: SKTexture(imageNamed: GameConstants.StringConstants.largePopup), score: coins, coins: superCoins, animated: true)
             popup!.add(buttons: [2,0])
         }
         popup!.position = CGPoint(x: frame.midX, y: frame.midY)
@@ -291,7 +308,7 @@ class GameScene: SKScene {
             GameConstants.StringConstants.scoreCoinsKey : superCoins
         ]
         
-        ScoreManager.compare(scores: [scores], in: "Level_0-1")
+        ScoreManager.compare(scores: [scores], in: levelKey)
         createAndShowPopup(type: 1, title: GameConstants.StringConstants.completedKey)
         
     }

@@ -28,6 +28,9 @@
 		93A595B52087617D00FB5043 /* ScoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A595B42087617D00FB5043 /* ScoreManager.swift */; };
 		93B21DF020304C03001EBB7A /* Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B21DEF20304C03001EBB7A /* Layer.swift */; };
 		93E7F1C720308BC200AEC6DC /* AnimationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E7F1C620308BC200AEC6DC /* AnimationHelper.swift */; };
+		93EC9FCB208B4670000F001A /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC9FCA208B4670000F001A /* MenuScene.swift */; };
+		93EC9FCD208B48C8000F001A /* SceneManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC9FCC208B48C8000F001A /* SceneManagerDelegate.swift */; };
+		93EC9FCF208B4C00000F001A /* LevelScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC9FCE208B4C00000F001A /* LevelScene.swift */; };
 		93F47501202724B600C014C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F47500202724B600C014C4 /* AppDelegate.swift */; };
 		93F47507202724B600C014C4 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F47506202724B600C014C4 /* GameScene.swift */; };
 		93F47509202724B600C014C4 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F47508202724B600C014C4 /* GameViewController.swift */; };
@@ -80,6 +83,9 @@
 		93A595B42087617D00FB5043 /* ScoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreManager.swift; sourceTree = "<group>"; };
 		93B21DEF20304C03001EBB7A /* Layer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layer.swift; sourceTree = "<group>"; };
 		93E7F1C620308BC200AEC6DC /* AnimationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationHelper.swift; sourceTree = "<group>"; };
+		93EC9FCA208B4670000F001A /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
+		93EC9FCC208B48C8000F001A /* SceneManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneManagerDelegate.swift; sourceTree = "<group>"; };
+		93EC9FCE208B4C00000F001A /* LevelScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelScene.swift; sourceTree = "<group>"; };
 		93F474FD202724B600C014C4 /* Super Indie Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Super Indie Runner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93F47500202724B600C014C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93F47506202724B600C014C4 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -139,6 +145,7 @@
 			children = (
 				9328A76820836262002AB32E /* HUDDelegate.swift */,
 				935F2F352084C7E500C1A125 /* PopupButtonHandlerDelegate.swift */,
+				93EC9FCC208B48C8000F001A /* SceneManagerDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -284,6 +291,8 @@
 			isa = PBXGroup;
 			children = (
 				93F47506202724B600C014C4 /* GameScene.swift */,
+				93EC9FCA208B4670000F001A /* MenuScene.swift */,
+				93EC9FCE208B4C00000F001A /* LevelScene.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -463,16 +472,19 @@
 				93F47507202724B600C014C4 /* GameScene.swift in Sources */,
 				93F475412027305400C014C4 /* SKNode+Extensions.swift in Sources */,
 				9328A76920836262002AB32E /* HUDDelegate.swift in Sources */,
+				93EC9FCD208B48C8000F001A /* SceneManagerDelegate.swift in Sources */,
 				93B21DF020304C03001EBB7A /* Layer.swift in Sources */,
 				935F2F302084C71000C1A125 /* PopupNode.swift in Sources */,
 				9328A76B208362B9002AB32E /* GameHUD.swift in Sources */,
 				93A595B52087617D00FB5043 /* ScoreManager.swift in Sources */,
 				93F47509202724B600C014C4 /* GameViewController.swift in Sources */,
+				93EC9FCF208B4C00000F001A /* LevelScene.swift in Sources */,
 				933FBDFE2082102200DD6778 /* ObjectHelper.swift in Sources */,
 				935F2F362084C7E500C1A125 /* PopupButtonHandlerDelegate.swift in Sources */,
 				936FDA8320307893009683CC /* Player.swift in Sources */,
 				935F2F322084C76E00C1A125 /* ScorePopupNode.swift in Sources */,
 				936FDA8020306053009683CC /* GameConstants.swift in Sources */,
+				93EC9FCB208B4670000F001A /* MenuScene.swift in Sources */,
 				9328A759208340F4002AB32E /* ParticleHelper.swift in Sources */,
 				93E7F1C720308BC200AEC6DC /* AnimationHelper.swift in Sources */,
 				93F47501202724B600C014C4 /* AppDelegate.swift in Sources */,

@@ -17,6 +17,7 @@ class ScorePopupNode: PopupNode {
     init(buttonHandlerDelegate: PopupButtonHandlerDelegate, title: String, level: String, texture: SKTexture, score: Int, coins: Int, animated: Bool){
         self.level = level
         self.score = ScoreManager.getCurrentScore(for: level)
+        
         super.init(withTitle: title, and: texture, buttonHandlerDelegate: buttonHandlerDelegate)
         
         addScoreLabel()
@@ -34,7 +35,7 @@ class ScorePopupNode: PopupNode {
     }
     
     func addScoreLabel(){
-        scoreLabel = SKLabelNode(fileNamed: GameConstants.StringConstants.gameFontName)
+        scoreLabel = SKLabelNode(fontNamed: GameConstants.StringConstants.gameFontName)
         scoreLabel.fontSize = 200.0
         scoreLabel.text = "0"
         scoreLabel.scale(to: size, width: false, multiplier: 0.1)
@@ -55,7 +56,7 @@ class ScorePopupNode: PopupNode {
             if i == 1 {
                 empty.position.y += empty.size.height / 4
             }
-            empty.zRotation = -CGFloat(-M_PI_4/2) + CGFloat(i) * CGFloat(-M_PI_4/2)
+             empty.zRotation = -CGFloat(-M_PI_4/2) + CGFloat(i) * CGFloat(-M_PI_4/2)
             empty.zPosition = GameConstants.ZPositions.hudZ
             
             
@@ -63,7 +64,7 @@ class ScorePopupNode: PopupNode {
             star.position = empty.position
             star.zRotation = empty.zRotation
             star.zPosition = GameConstants.ZPositions.hudZ
-            star.name = GameConstants.StringConstants.fullStarName + "\(i)"
+            star.name = GameConstants.StringConstants.fullStarName + "_\(i)"
             star.alpha = 0.0
             
             addChild(empty)

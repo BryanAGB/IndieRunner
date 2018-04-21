@@ -48,7 +48,7 @@ struct ScoreManager {
                 newHighScore = true
             }
         }
-        if newHighScore == true {
+        if newHighScore {
             let newScore = [GameConstants.StringConstants.scoreScoreKey: maxScore, GameConstants.StringConstants.scoreStarsKey:maxStars, GameConstants.StringConstants.scoreCoinsKey:maxCoins]
             updateScore(for: levelKey, and: newScore)
         }

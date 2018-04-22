@@ -26,6 +26,7 @@
 		936FDA882030852C009683CC /* GroundNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936FDA872030852C009683CC /* GroundNode.swift */; };
 		93791C302086128A004703B0 /* SpriteKitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93791C2F2086128A004703B0 /* SpriteKitButton.swift */; };
 		9390EE49208CA1310013B6B2 /* PowerupEmitter.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9390EE48208CA1310013B6B2 /* PowerupEmitter.sks */; };
+		9390EE50208CAF5B0013B6B2 /* Level_1-1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9390EE4F208CAF5B0013B6B2 /* Level_1-1.sks */; };
 		93A595B52087617D00FB5043 /* ScoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A595B42087617D00FB5043 /* ScoreManager.swift */; };
 		93B21DF020304C03001EBB7A /* Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B21DEF20304C03001EBB7A /* Layer.swift */; };
 		93E7F1C720308BC200AEC6DC /* AnimationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E7F1C620308BC200AEC6DC /* AnimationHelper.swift */; };
@@ -82,6 +83,7 @@
 		936FDA872030852C009683CC /* GroundNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundNode.swift; sourceTree = "<group>"; };
 		93791C2F2086128A004703B0 /* SpriteKitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteKitButton.swift; sourceTree = "<group>"; };
 		9390EE48208CA1310013B6B2 /* PowerupEmitter.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PowerupEmitter.sks; sourceTree = "<group>"; };
+		9390EE4F208CAF5B0013B6B2 /* Level_1-1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Level_1-1.sks"; sourceTree = "<group>"; };
 		93A595B42087617D00FB5043 /* ScoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreManager.swift; sourceTree = "<group>"; };
 		93B21DEF20304C03001EBB7A /* Layer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layer.swift; sourceTree = "<group>"; };
 		93E7F1C620308BC200AEC6DC /* AnimationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationHelper.swift; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 			isa = PBXGroup;
 			children = (
 				93F4753A2027287100C014C4 /* Level_0-1.sks */,
+				9390EE4F208CAF5B0013B6B2 /* Level_1-1.sks */,
 			);
 			path = Levels;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 				93F4750C202724B600C014C4 /* Main.storyboard in Resources */,
 				9390EE49208CA1310013B6B2 /* PowerupEmitter.sks in Resources */,
 				9328A76F20836317002AB32E /* unanimous.inverted-brk.ttf in Resources */,
+				9390EE50208CAF5B0013B6B2 /* Level_1-1.sks in Resources */,
 				93F4753B2027287100C014C4 /* Level_0-1.sks in Resources */,
 				93F4753E2027295E00C014C4 /* TileSets.sks in Resources */,
 				93F4750E202724B600C014C4 /* Assets.xcassets in Resources */,

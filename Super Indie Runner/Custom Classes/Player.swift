@@ -27,6 +27,8 @@ class Player: SKSpriteNode {
     
     var airborne = false
     
+    var invincible = false
+    
     func loadTextures() {
         idleFrames = AnimationHelper.loadTextures(from: SKTextureAtlas(named: GameConstants.StringConstants.playerIdleAtlas), withName: GameConstants.StringConstants.idlePrefixKey)
         
@@ -45,5 +47,21 @@ class Player: SKSpriteNode {
         case .running:
             self.run(SKAction.repeatForever(SKAction.animate(with: runFrames, timePerFrame: 0.05, resize: true, restore: true)))
     }
+     
+    }
+        func activatePowerup(active: Bool) {
+            if active {
+                if let poweupEffect = ParticleHelper.addParticleEffect(name: GameConstants.StringConstants.powerUpEmitterKey, particlePositionRange: CGVector(dx: 0.0, dy: size.height), position: CGPoint(x: -size.width, y: 0.0)) {
+                    poweupEffect.zPosition = GameConstants.ZPositions.objectZ
+                    addChild(poweupEffect)
+                    invincible = true
+                    run(SKAction.wait(forDuration: 5.0), completion: {
+                        self.activatePowerup(active: false)
+                    })
+                }
+            } else {
+                invincible = false
+                ParticleHelper.removeParticleEffect(name: GameConstants.StringConstants.powerUpEmitterKey, from: self)
+            }
 }
 }

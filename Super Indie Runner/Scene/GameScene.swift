@@ -181,6 +181,7 @@ class GameScene: SKScene {
     }
     
     func handleEnemyContact() {
+        if player.invincible { return }
         die(reason: 0)
     }
     
@@ -195,6 +196,8 @@ class GameScene: SKScene {
         case GameConstants.StringConstants.coinName,
              _ where GameConstants.StringConstants.superCoinNames.contains(sprite.name!):
             collectCoin(sprite: sprite)
+        case GameConstants.StringConstants.powerUpName :
+            player.activatePowerup(active: true)
         default:
             break
         }
@@ -254,7 +257,7 @@ class GameScene: SKScene {
             popup!.add(buttons: [0,3,2])
         default:
             popup = ScorePopupNode(buttonHandlerDelegate: self, title: title, level: levelKey, texture: SKTexture(imageNamed: GameConstants.StringConstants.largePopup), score: coins, coins: superCoins, animated: true)
-            popup!.add(buttons: [2,0])
+            popup!.add(buttons: [2,1,0])
         }
         popup!.position = CGPoint(x: frame.midX, y: frame.midY)
         popup!.zPosition = GameConstants.ZPositions.hudZ
@@ -288,6 +291,9 @@ class GameScene: SKScene {
     
     func finishGame() {
         
+        if player.position.y > frame.size.height * 0.7 {
+            coins += 10
+        }
         gameState = .finished
         var stars = 0
         let percentage = CGFloat(coins) / 100.0
@@ -311,6 +317,11 @@ class GameScene: SKScene {
         ScoreManager.compare(scores: [scores], in: levelKey)
         createAndShowPopup(type: 1, title: GameConstants.StringConstants.completedKey)
         
+        if level < 9 {
+            let nextLevelKey = "Level_\(world)-\(level+1)"
+            UserDefaults.standard.set(true, forKey: nextLevelKey)
+            UserDefaults.standard.synchronize()
+        }
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         switch gameState {
@@ -403,13 +414,13 @@ extension GameScene: PopupButtonHandlerDelegate {
         switch index{
         case 0:
             //Menu
-            break
+            sceneManagerDelegate?.presentMenuScene()
         case 1:
             //Play
-            break
+            sceneManagerDelegate?.presentLevelScene(for: world)
         case 2:
             //Retry
-            break
+            sceneManagerDelegate?.presentGameScene(for: level, in: world)
         case 3:
             //Cancel
             popup!.run(SKAction.fadeOut(withDuration: 0.2), completion: {

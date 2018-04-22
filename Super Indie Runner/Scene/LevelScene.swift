@@ -54,14 +54,14 @@ class LevelScene: SKScene {
             previousWorldButton.zPosition = GameConstants.ZPositions.worldZ
             addChild(previousWorldButton)
             
+        }
+            
         if world < GameConstants.StringConstants.worldBackgroundNames.count - 1 {
-            print(world)
             let nextWorldButton = SpriteKitButton(defaultButtonImage: GameConstants.StringConstants.playButton, action: buttonHandler, index: 10)
             nextWorldButton.scale(to: frame.size, width: false, multiplier: 0.075)
             nextWorldButton.position = CGPoint(x: frame.maxX - nextWorldButton.size.width / 1.5, y: frame.maxY - titleLabel.frame.size.height)
             nextWorldButton.zPosition = GameConstants.ZPositions.worldZ
             addChild(nextWorldButton)
-            }
             
         }
         

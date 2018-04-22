@@ -36,6 +36,8 @@ struct GameConstants {
         static let gameName = "SUPER INDIE RUNNER"
         static let groundTilesName = "Ground Tiles"
         static let worldBackgroundNames = ["DesertBackground", "GrassBackground"]
+        static let menuBackground = "MenuBackground"
+        static let foregroundLayer = "ForegroundLayer"
         static let playerName = "Player"
         static let playerImageName = "Idle_0"
         static let groundNodeName = "GroundNode"
